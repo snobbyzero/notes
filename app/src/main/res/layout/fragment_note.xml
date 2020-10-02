@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="noteViewModel"
+            type="com.example.notes.fragment.note.NoteViewModel" />
+
+        <import type="android.view.View"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".fragment.note.NoteFragment">
+
+        <TextView
+            android:id="@+id/dateOfCreationTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="10dp"
+            style="@style/AppTheme.Subtitle"
+            android:text="@{noteViewModel.note.da}"/>
+
+        <TextView
+            android:id="@+id/noteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="vertical"
+            style="@style/AppTheme.Caption"
+            android:layout_below="@id/dateOfCreationTextView"
+            android:layout_margin="10dp"
+            android:text="@{noteViewModel.note.body}"
+            android:layout_above="@id/dateOfLastChangeTextView"/>
+
+        <TextView
+            android:id="@+id/dateOfLastChangeTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:visibility="@{noteViewModel.note.dm.empty ? View.INVISIBLE : View.VISIBLE}"
+            android:text="@{@string/last_change(noteViewModel.note.dm)}"
+            android:layout_margin="10dp"
+            style="@style/AppTheme.Subtitle"/>
+
+    </RelativeLayout>
+</layout>

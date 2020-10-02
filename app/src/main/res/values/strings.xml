@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Notes</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="add_node">Add node</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="last_change">Last change: %s</string>
+</resources>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="note"
+            type="com.example.notes.model.Note" />
+        <import type="android.view.View"/>
+        <variable
+            name="onNoteClickListener"
+            type="android.view.View.OnClickListener" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{onNoteClickListener}"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="5dp">
+
+        <TextView
+            android:id="@+id/dateOfCreationTextView"
+            style="@style/AppTheme.Subtitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:maxLines="1"
+            android:text="@{note.da}" />
+
+        <TextView
+            android:id="@+id/noteTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/dateOfCreationTextView"
+            android:maxLength="200"
+            android:text="@{note.body}" />
+
+        <TextView
+            android:id="@+id/dateOfLastChangeTextView"
+            style="@style/AppTheme.Caption"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/noteTextView"
+            android:layout_marginTop="10dp"
+            android:maxLines="1"
+            android:visibility="@{note.dm.empty ? View.GONE : View.VISIBLE}"
+            android:text="@{@string/last_change(note.dm)}" />
+
+    </RelativeLayout>
+</layout>
